@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trades</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+  <div th:replace="footer :: nav"></div>	
+  <span>Trades:</span>
+  <table>
+  	<tr>
+  		<th>Action</th>
+  		<th>Quantity</th>
+  		<th>Price</th>
+	</tr>
+    <tr th:each="trade, iterStat: ${trades}">
+    	  <td th:text="${trade.action}">${trade.action}</td>
+      <td th:text="${trade.quantity}">${trade.quantity}</td>
+      <td th:text="${trade.price}">${trade.price}</td>
+    </tr>
+  </table>
+</body>
+</html>

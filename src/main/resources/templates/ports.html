@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ports</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+  <div th:replace="footer :: nav"></div>	
+  Publish a command to the Matching Engine (eg., BUY 10 20):
+  <table>
+    <tr th:each="port, iterStat: ${ports}">
+    	  <td th:text="${port.value.id}"></td>
+      <td>
+      	<form action="/publish">
+      		<input type="hidden" name="port" th:value="${port.value.id}"></input>	
+      		<input type="text" name="message" value="BUY 10 10"></input>
+      		<input type="submit" value="publish"></input>
+      	</form>
+      </td>
+    </tr>
+  </table>	
+</body>
+</html>
